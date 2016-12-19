@@ -31,7 +31,7 @@ class ActorDetails extends Component {
                 <div>
                     <Drawer docked={false} width={400} 
                         openSecondary={true} 
-                        open={this.props.selector.selected}>
+                        open={this.props.selector.selected} >
 
                         <AppBar
                             onClick={() => this.props.closeSelected(false)}
@@ -45,7 +45,8 @@ class ActorDetails extends Component {
 
                         <CircularProgress />
 
-                        {this.props.selector.selected?
+                        <div className="darkBg">
+                            {this.props.selector.selected?
                             <div className="actor">
 
                                 <StarWarAvatar gender={this.props.selector.activeActor.gender} size="big"/>
@@ -60,6 +61,7 @@ class ActorDetails extends Component {
                                 <h3>Skin color : {this.props.selector.activeActor.skin_color}</h3>
                             </div>:''
                         }
+                        </div>
                     </Drawer>
                 </div>
             </div>
