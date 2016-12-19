@@ -9,7 +9,7 @@ module.exports = {
         port: 3000
     },
     devtool: 'cheap-module-eval-source-map',
-    entry: './redux_react/js/index.js',
+    entry: './dev/js/index.js',
     module: {
         loaders: [
             {
