@@ -8,7 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import StarWarAvatar from "./starwar-actors-avatar";
 
-import {showLoader,hideLoader,closeSelected} from "../actions/all-actions";
+import {showLoader,hideLoader,closeSelected} from "../actions/actors-actions";
 
 class ActorDetails extends Component {
 

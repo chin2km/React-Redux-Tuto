@@ -10,7 +10,7 @@ import CircularProgress from '../containers/loader';
 import StarWarAvatar from "./starwar-actors-avatar";
 import IconButton from 'material-ui/IconButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
-import {fetchActors,showLoader,hideLoader,selectActor} from "../actions/all-actions";
+import {fetchActors,showLoader,hideLoader,selectActor} from "../actions/actors-actions";
 
 class StarWarActors extends Component {
     constructor() {
