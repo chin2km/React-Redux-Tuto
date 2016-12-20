@@ -1,16 +1,5 @@
 import axios from "axios";
 export function fetchActors(){
-    //return{
-        //type:"ACTORS_FETCH",
-        // payload: new Promise(resolve => {
-        //                         setTimeout(() => fetch("http://swapi.co/api/people/?format=json")
-        //                         .then(response => {
-        //                         resolve(response.json());
-        //                         }), 2000);
-        //             })
-        // payload: axios.get("http://swapi.co/api/people/?format=json")
-
-        //}
 
         return function(dispatch){
 
@@ -65,3 +54,20 @@ export function showLoader (){
         payload:true
     }
 }
+
+
+
+///////////////////////////
+// Promise based fetch/////
+///////////////////////////
+    //return{
+        //type:"ACTORS_FETCH",
+        // payload: new Promise(resolve => {
+        //                         setTimeout(() => fetch("http://swapi.co/api/people/?format=json")
+        //                         .then(response => {
+        //                         resolve(response.json());
+        //                         }), 2000);
+        //             })
+        // payload: axios.get("http://swapi.co/api/people/?format=json")
+
+        //}
