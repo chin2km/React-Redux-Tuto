@@ -8,7 +8,9 @@ import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import StarWarAvatar from "./starwar-actors-avatar";
 
-import {showLoader,hideLoader,closeSelected} from "../actions/actors-actions";
+import {closeSelected} from "../actions/actors-actions";
+import {showLoader,hideLoader} from "../actions/loader-actions";
+
 
 class ActorDetails extends Component {
 
@@ -20,7 +22,7 @@ class ActorDetails extends Component {
     fakeHideLoader(){
         setTimeout(()=>{
             this.props.hideLoader();
-        },1000)
+        },1000)    
     }
 
     render() {
@@ -43,7 +45,7 @@ class ActorDetails extends Component {
                         title="back to the dark side"
                         />
 
-                        <CircularProgress />
+                        
 
                         <div className="darkBg">
                             {this.props.selector.selected?
@@ -62,6 +64,7 @@ class ActorDetails extends Component {
                             </div>:''
                         }
                         </div>
+                        <CircularProgress />
                     </Drawer>
                 </div>
             </div>

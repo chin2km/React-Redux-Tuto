@@ -1,10 +1,18 @@
 import { takeEvery, delay } from 'redux-saga';
-import { put } from 'redux-saga/effects';
+import { put,call } from 'redux-saga/effects';
 
-import actorSagas from "./actors/actors-sagas";
+import actorsSagas from "./actors/actors-sagas";
 
 export default function* rootSaga() {
-  yield [
-    actorSagas()
-  ]
+
+    try {
+        while (true) {
+          yield [
+            actorsSagas()
+          ]
+        }
+    } catch (error) {
+      console.log(error)
+    }
+
 }

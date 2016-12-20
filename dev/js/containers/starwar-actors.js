@@ -10,20 +10,22 @@ import CircularProgress from '../containers/loader';
 import StarWarAvatar from "./starwar-actors-avatar";
 import IconButton from 'material-ui/IconButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
-import {fetchActors,showLoader,hideLoader,selectActor} from "../actions/actors-actions";
+import {fetchActors,selectActor} from "../actions/actors-actions";
+import {showLoader,hideLoader} from "../actions/loader-actions";
+
 
 class StarWarActors extends Component {
     constructor() {
         super();
-        this.reloadActors = this.reloadActors.bind(this);
+        this.loadActors = this.loadActors.bind(this);
     }
     
     componentWillMount() {
-        this.reloadActors();
+        this.loadActors();
     }
     
 
-    reloadActors(){
+    loadActors(){
         this.props.showLoader();
         this.props.fetchActors()
     }
@@ -72,7 +74,7 @@ class StarWarActors extends Component {
                     The Dark Side - ¯\_(ツ)_/¯
                     <IconButton
                         className="home-btn"
-                        onClick={this.reloadActors}
+                        onClick={this.loadActors}
                         >
                         <ActionHome />
                     </IconButton>
