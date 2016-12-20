@@ -1,5 +1,5 @@
 import axios from "axios";
-export function fetchActors(){
+export const fetchActors =()=>{
 
         return function(dispatch){
 
@@ -27,28 +27,28 @@ export function fetchActors(){
         }
 }
 
-export function selectActor(actor){
+export const selectActor=(actor)=>{
     return {
         type:'ACTOR_SELECTED',
         payload:actor
     }
 }
 
-export function closeSelected (open){
+export const closeSelected =(open)=>{
     return {
         type:'CLOSE_SELECTED',
         payload:open
     }
 }
 
-export function hideLoader(){
+export const hideLoader=()=>{
     return {
         type:'HIDE_LOADER',
         payload:false
     }
 }
 
-export function showLoader (){
+export const showLoader =()=>{
     return {
         type:'SHOW_LOADER',
         payload:true
