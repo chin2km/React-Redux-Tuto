@@ -1,6 +1,7 @@
 export const PUT_ACTORS = "PUT_ACTORS";
 export const FETCH_ACTORS = "FETCH_ACTORS";
-export const ACTOR_SELECTED = "ACTOR_SELECTED";
+export const FETCH_ACTOR_BY_ID = "FETCH_ACTOR_BY_ID";
+export const PUT_FETCHED_ACTOR ="PUT_FETCHED_ACTOR";
 export const CLOSE_SELECTED = "CLOSE_SELECTED";
 
 
@@ -23,10 +24,17 @@ export const putActors = (actors) => {
     }
 }
 
-export const selectActor = (actor) => {
+export const fetchActorById = (actor) => {
     return {
-        type: ACTOR_SELECTED,
+        type: FETCH_ACTOR_BY_ID,
         payload: actor
+    }
+}
+
+export const putFetchedActor=(actor)=>{
+    return{
+        type:PUT_FETCHED_ACTOR,
+        payload:actor
     }
 }
 

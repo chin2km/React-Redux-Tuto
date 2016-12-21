@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import CircularProgress from '../containers/loader';
+import CircularProgress from '../components/loader';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
@@ -9,27 +9,20 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import StarWarAvatar from "./starwar-actors-avatar";
 
 import {closeSelected} from "../actions/actors-actions";
-import {showLoader,hideLoader} from "../actions/loader-actions";
 
 
 class ActorDetails extends Component {
 
     constructor(props) {
         super(props);
-        this.fakeHideLoader = this.fakeHideLoader.bind(this);
     }
-    
-    fakeHideLoader(){
-        setTimeout(()=>{
-            this.props.hideLoader();
-        },1000)    
-    }
+
 
     render() {
 
 
         return (
-            <div onLoad={this.fakeHideLoader}>
+            <div>
                 <div>
                     <Drawer docked={false} width={400} 
                         openSecondary={true} 
@@ -46,25 +39,28 @@ class ActorDetails extends Component {
                         />
 
                         
-
                         <div className="darkBg">
-                            {this.props.selector.selected?
-                            <div className="actor">
+                            {this.props.selector.loaded?
+                                <div className="actor">
 
-                                <StarWarAvatar gender={this.props.selector.activeActor.gender} size="big"/>
+                                    <StarWarAvatar gender={this.props.selector.activeActor.gender} size="big"/>
 
-                                <h1>{this.props.selector.activeActor.name}</h1>
-                                <h3>Gender : {this.props.selector.activeActor.gender}</h3>
-                                <h3>Birth year : {this.props.selector.activeActor.birth_year}</h3>
-                                <h3>Height : {this.props.selector.activeActor.height}</h3>
-                                <h3>Mass : {this.props.selector.activeActor.mass}</h3>
-                                <h3>Eye color : {this.props.selector.activeActor.eye_color}</h3>
-                                <h3>Hair color : {this.props.selector.activeActor.hair_color}</h3>
-                                <h3>Skin color : {this.props.selector.activeActor.skin_color}</h3>
-                            </div>:''
-                        }
+                                    <h1>{this.props.selector.activeActor.name}</h1>
+                                    <h3>Gender : {this.props.selector.activeActor.gender}</h3>
+                                    <h3>Birth year : {this.props.selector.activeActor.birth_year}</h3>
+                                    <h3>Height : {this.props.selector.activeActor.height}</h3>
+                                    <h3>Mass : {this.props.selector.activeActor.mass}</h3>
+                                    <h3>Eye color : {this.props.selector.activeActor.eye_color}</h3>
+                                    <h3>Hair color : {this.props.selector.activeActor.hair_color}</h3>
+                                    <h3>Skin color : {this.props.selector.activeActor.skin_color}</h3>
+                                </div>
+                                :
+                                ''
+                            }
                         </div>
-                        <CircularProgress />
+        
+                        <CircularProgress visibility={!this.props.selector.loaded} message="" />
+                        
                     </Drawer>
                 </div>
             </div>
@@ -81,9 +77,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        closeSelected:closeSelected,
-        showLoader:showLoader,
-        hideLoader:hideLoader
+        closeSelected:closeSelected
     },dispatch);
 }
 

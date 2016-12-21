@@ -6,12 +6,11 @@ import Subheader from 'material-ui/Subheader';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import CircularProgress from '../containers/loader';
+import CircularProgress from '../components/loader';
 import StarWarAvatar from "./starwar-actors-avatar";
 import IconButton from 'material-ui/IconButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
-import {fetchActors,selectActor} from "../actions/actors-actions";
-import {showLoader,hideLoader} from "../actions/loader-actions";
+import { fetchActors, fetchActorById } from "../actions/actors-actions";
 
 
 class StarWarActors extends Component {
@@ -19,42 +18,34 @@ class StarWarActors extends Component {
         super();
         this.loadActors = this.loadActors.bind(this);
     }
-    
+
     componentWillMount() {
         this.loadActors();
     }
-    
 
-    loadActors(){
-        this.props.showLoader();
+
+    loadActors() {
         this.props.fetchActors()
     }
 
     createItems() {
-        if (this.props.fetcher.fetching === true) {
-            return (<CircularProgress />)
-        }
-        else if (this.props.fetcher.fetched === true) {
+        if (this.props.fetcher.fetched === true) {
             return (
-                <div>
 
-                    <div>
-                        <List>
+                <List>
 
-                                {this.props.fetcher.actors.map(actor =>
-                                    <ListItem className="list-item"
-                                        onClick={() => this.props.selectActor(actor)}
-                                        key={actor.name}
-                                        primaryText={actor.name}
-                                        leftAvatar={<div><StarWarAvatar gender={actor.gender} size="small"/></div>}
-                                        rightIcon={<MoreVertIcon />}
-                                        />
-                                )
-                            }
-                        </List>
+                    {this.props.fetcher.actors.map(actor =>
+                        <ListItem className="list-item"
+                            onClick={() => this.props.fetchActorById(actor)}
+                            key={actor.name}
+                            primaryText={actor.name}
+                            leftAvatar={<div><StarWarAvatar gender={actor.gender} size="small" /></div>}
+                            rightIcon={<MoreVertIcon />}
+                            />
+                    )
+                    }
+                </List>
 
-                    </div>
-                </div>
 
             );
         }
@@ -79,6 +70,7 @@ class StarWarActors extends Component {
                         <ActionHome />
                     </IconButton>
                 </h1>
+                <CircularProgress visibility={this.props.fetcher.fetched!==true} message={"May the force be with you..."}/>
                 {this.createItems()}
             </div>
         );
@@ -93,11 +85,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-            fetchActors:fetchActors,
-            selectActor: selectActor,
-            showLoader:showLoader,
-            hideLoader:hideLoader
-        }, dispatch)
+        fetchActors: fetchActors,
+        fetchActorById: fetchActorById
+    }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StarWarActors);

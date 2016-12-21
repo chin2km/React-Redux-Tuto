@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import StarWarActors from '../containers/starwar-actors'
 import ActorDetails from '../containers/starwar-actor-details';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import CircularProgress from '../containers/loader';
+import CircularProgress from './loader';
 import DarkFooter from "./footer"
 
 

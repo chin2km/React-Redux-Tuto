@@ -10,9 +10,10 @@ class LoaderCircle extends React.Component {
   }
   
   render() {
-    if (this.props.loader.visibility) {
+    if (this.props.visibility) {
       return(<div className="loader-bg">
               <CircularProgress size={75} thickness={8} />
+              <h3>{this.props.message}</h3>
             </div>);
     } else {
       return <span></span>

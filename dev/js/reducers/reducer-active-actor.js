@@ -1,5 +1,6 @@
 const initState={
     selected:false,
+    loaded:false,
     activeActor:null,
 }
 
@@ -8,18 +9,17 @@ export default function (state=initState,action) {
     const newState = Object.assign({},state);
 
     switch(action.type){
-        case "ACTOR_SELECTED":
+        case "FETCH_ACTOR_BY_ID":
             newState.selected =  true;
-            newState.activeActor =  action.payload;
+            newState.loaded=false;
+            break;
+        case "PUT_FETCHED_ACTOR":
+            newState.loaded=true;
+            newState.activeActor=action.payload;
             break;
         case "CLOSE_SELECTED":
-            newState.selected =  action.payload;
-            newState.activeActor =  null;
+            return Object.assign({},initState);
             break;
-        case "ACTORS_FETCH_FULFILLED":
-            newState.loaded =  true;
-            break;
-
     }
 
     return newState;

@@ -7,7 +7,7 @@ const instance = axios.create();
 
 export function httpRequest(method, url, config){
     const requestObject = R.merge(config, {
-        url: `${apiBaseURL}${url}`,
+        url: url,
         method: method,
         headers: {
 
