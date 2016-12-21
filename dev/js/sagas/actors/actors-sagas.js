@@ -1,4 +1,4 @@
-import {takeEvery} from 'redux-saga';
+import {takeEvery,takeLatest} from 'redux-saga';
 
 
 import { 
@@ -12,7 +12,7 @@ import { fetchActorsByIdSaga } from './fetch-actors-saga';
 
 export default function* actorsSagas() {
   yield [
-    takeEvery(FETCH_ACTORS,fetchActorsSaga),
+    takeLatest(FETCH_ACTORS,fetchActorsSaga),
     takeEvery(FETCH_ACTOR_BY_ID,fetchActorsByIdSaga)
   ]
 }
