@@ -14,9 +14,6 @@ export default function (state = initState, action) {
         case "PUT_ACTORS":
             return Object.assign({},state,{fetching:false,fetched:true,actors:action.payload});
             break;
-        case "ACTORS_FETCH_REJECTED":
-            return Object.assign({},state,{fetching:false,fetched:true,error:action.payload});
-            break;
     }
 
     return state;
