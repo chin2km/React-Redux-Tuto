@@ -4,11 +4,11 @@ import { put,call } from 'redux-saga/effects';
 import actorsSagas from "./actors/actors-sagas";
 
 export default function* rootSaga() {
-
+    
     try {
         while (true) {
           yield [
-            actorsSagas()
+              call(actorsSagas)
           ]
         }
     } catch (error) {

@@ -1,5 +1,11 @@
-import {delay} from "redux-saga";
 
-export function* fetchActorsSaga() {
-  yield console.log('Fetch Start Saga!')
+import {httpRequest} from "../../utils/http-service";
+import {call, select, put} from 'redux-saga/effects';
+
+import {putActors} from "../../actions/actors-actions"
+
+export function* fetchActorsSaga(action) {
+  const response = yield call(httpRequest,'GET', 'people/?format=json');
+
+  yield put(putActors(response.data.results));
 }

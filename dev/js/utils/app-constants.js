@@ -1,0 +1,1 @@
+export const apiBaseURL = "http://swapi.co/api/";

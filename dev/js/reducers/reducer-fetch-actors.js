@@ -7,13 +7,12 @@ const initState={
 
 export default function (state = initState, action) {
     
-    
     switch (action.type) {
-        case "ACTORS_FETCH_PENDING":
+        case "FETCH_ACTORS":
             return Object.assign({},state,{fetching:true});
             break;
-        case "ACTORS_FETCH_FULFILLED":
-            return Object.assign({},state,{fetching:false,fetched:true,actors:action.payload.results});
+        case "PUT_ACTORS":
+            return Object.assign({},state,{fetching:false,fetched:true,actors:action.payload});
             break;
         case "ACTORS_FETCH_REJECTED":
             return Object.assign({},state,{fetching:false,fetched:true,error:action.payload});
