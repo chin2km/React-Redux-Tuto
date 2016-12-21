@@ -1,6 +1,8 @@
 ## Welcome to My React-Redux Tutorial work
 
 ##You can check the page here http://www.chin2km.com/React-Redux-Tuto/
+>and my complete work here > ## http://www.chin2km.com
+
 
 
 Step 1:
@@ -10,11 +12,14 @@ Step 1:
  >> webpack
 
  Step 3:
- >>goto http://localhost:3000
-.
-.
-.
-.
-.
-.
-and my complete work here > ## http://www.chin2km.com
+ >> npm run start
+
+ Step 3:
+ >>goto http://localhost:3000 (hot-reload-enabled)
+
+
+ Good luck!
+
+
+
+
