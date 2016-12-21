@@ -15,7 +15,7 @@ Step 1:
  >> npm run start
 
  Step 3:
- >>goto http://localhost:3000 (hot-reload-enabled)
+ >>goto http://localhost:3333 (hot-reload-enabled)
 
 
  Good luck!
