@@ -17,6 +17,7 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from './containers/components/App.Sagas';
 
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router';
+import { createHistory, useBasename } from 'history';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -25,11 +26,16 @@ const store = createStore(allReducers,middlewares);
 
 sagaMiddleware.run(rootSaga);
 
+
+const history = useBasename(createHistory)({
+  basename: '/React-Redux-Tuto'
+})
+
 ReactDOM.render(
     <Provider store={store}>
         <MuiThemeProvider>
-            <Router history = {browserHistory}>
-                <Route path = "/React-Redux-Tuto/" component = {App}>
+            <Router history = {history}>
+                <Route path = "/" component = {App}>
                     <IndexRoute component = {Actors} />
                     <Route path = "actors" component = {Actors} />
                     <Route path = "starships" component = {Starships} />
