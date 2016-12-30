@@ -5,7 +5,8 @@ module.exports = {
     devServer: {
         inline: true,
         contentBase: './src',
-        port: 3333
+        port: 3333,
+        historyApiFallback: true
     },
     devtool: 'cheap-module-eval-source-map',
     entry: ['babel-polyfill','./dev/js/index.js'],
