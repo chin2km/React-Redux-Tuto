@@ -11,7 +11,7 @@ import logger from "redux-logger";
 import promiseMiddleware from "redux-promise-middleware";
 import axios from "axios";
 import createSagaMiddleware from "redux-saga";
-import rootSaga from './sagas/root-saga'
+import rootSaga from './sagas/root-saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
