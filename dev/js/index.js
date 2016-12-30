@@ -29,7 +29,7 @@ ReactDOM.render(
     <Provider store={store}>
         <MuiThemeProvider>
             <Router history = {browserHistory}>
-                <Route path = "/" component = {App}>
+                <Route path = "/React-Redux-Tuto/" component = {App}>
                     <IndexRoute component = {Actors} />
                     <Route path = "actors" component = {Actors} />
                     <Route path = "starships" component = {Starships} />
