@@ -28,7 +28,7 @@ sagaMiddleware.run(rootSaga);
 
 
 const history = useBasename(createHistory)({
-  basename: ''// /React-Redux-Tuto'
+  basename: '/React-Redux-Tuto'
 })
 
 ReactDOM.render(
