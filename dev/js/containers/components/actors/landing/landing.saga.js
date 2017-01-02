@@ -3,24 +3,17 @@ import {httpRequest} from "../../../../utils/http-service";
 import {delay} from "redux-saga";
 import {call, select, put} from 'redux-saga/effects';
 
-import {putActors,putFetchedActor} from "./landing.actions"
+import {putData} from "./landing.actions"
 
-export function* fetchActorsSaga(action) {
+export function* fetchDataByPageSaga(action) {
   try {
+    if(action.payload === 1){
       yield delay(1500);
-      const response = yield call(httpRequest,'GET', "http://swapi.co/api/people/?format=json");
+    }
 
-      yield put(putActors(response.data.results));
-  } catch (error) {
-  }
-
-}
-
-export function* fetchActorsByIdSaga(action) {
-  try {
-      yield delay(500);
-      const response = yield call(httpRequest,'GET', action.payload.url);
-      yield put(putFetchedActor(response.data));
+    const response = yield call(httpRequest,'GET', "http://swapi.co/api/people/?format=json&page="+action.payload);
+    yield put(putData(response.data));
+    
   } catch (error) {
   }
 

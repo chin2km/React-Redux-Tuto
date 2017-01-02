@@ -6,7 +6,7 @@ import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import StarWarAvatar from "../common/actors-avatar";
+import StarWarAvatar from "../../../common/components/actors-avatar";
 import {closeSelected} from "./details.actions";
 
 
@@ -70,7 +70,7 @@ class Details extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        selector: state.selector
+        selector: state.ActorsReducers.details
     }
 }
 

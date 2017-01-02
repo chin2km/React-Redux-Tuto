@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
 require('../../../../../scss/style.scss');
-import Avatar from 'material-ui/Avatar';
 import { List, ListItem } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CircularProgress from '../../../common/loader';
-import StarWarAvatar from "../common/actors-avatar";
-import IconButton from 'material-ui/IconButton';
-import ActionHome from 'material-ui/svg-icons/action/home';
-import { fetchActors, fetchActorById } from "./landing.actions";
+import StarWarAvatar from "../../../common/components/actors-avatar";
+import {fetchDataByPage} from "./landing.actions";
+import {fetchDataById} from "../details/details.actions";
 
 
 class Landing extends Component {
     constructor() {
         super();
-        this.loadActors = this.loadActors.bind(this);
+        this.fetchDataByPage = this.fetchDataByPage.bind(this);
+        this.state={
+            activePage:1
+        }
     }
 
     componentWillMount() {
-        this.loadActors();
+        this.fetchDataByPage(this.state.activePage);
+    }
+    
+
+    fetchDataByPage(page){
+        this.setState({
+            activePage:page
+        });
+        this.props.fetchDataByPage(page)
     }
 
-
-    loadActors() {
-        this.props.fetchActors()
-    }
 
     createItems() {
         if (this.props.fetcher.fetched === true) {
@@ -36,7 +42,7 @@ class Landing extends Component {
 
                     {this.props.fetcher.actors.map(actor =>
                         <ListItem className="list-item"
-                            onClick={() => this.props.fetchActorById(actor)}
+                            onClick={() => this.props.fetchDataById(actor)}
                             key={actor.name}
                             primaryText={actor.name}
                             leftAvatar={<div><StarWarAvatar gender={actor.gender} size="small" /></div>}
@@ -53,16 +59,35 @@ class Landing extends Component {
             return (<h2>Error</h2>)
 
         }
-
-
-
     }
+
+    createPagination() {
+        if (this.props.fetcher.fetched === true) {
+            let buttons = [];
+            for (let i = 1; i <= this.props.fetcher.pages; i++) {
+                buttons.push(
+                    <FloatingActionButton key={i}  mini={true} className="pageNo" onClick={() => this.fetchDataByPage(i)} >
+                    {i} 
+                    </FloatingActionButton>
+                )
+            }
+            return (
+                <div className="floatingButton">
+                    {this.state.activePage}
+                    {buttons}
+                    <span className='pageTip'>page</span>
+                </div>
+            );
+        }
+    }
+
 
     render() {
         return (
             <div>
                 <CircularProgress visibility={this.props.fetcher.fetched!==true} message={"May the force be with you..."}/>
                 {this.createItems()}
+                {this.createPagination()}
             </div>
         );
     }
@@ -70,14 +95,14 @@ class Landing extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        fetcher: state.fetcher
+        fetcher: state.ActorsReducers.landing
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        fetchActors: fetchActors,
-        fetchActorById: fetchActorById
+        fetchDataById: fetchDataById,
+        fetchDataByPage: fetchDataByPage,
     }, dispatch)
 }
 

@@ -5,9 +5,9 @@ import {Provider} from "react-redux";
 import { createStore,applyMiddleware } from "redux";
 import App from './containers/App';
 import Actors from './containers/components/actors/actors.layout'
+import Films from './containers/components/films/films.layout'
 import Starships from './containers/components/starships/starships'
-import Films from './containers/components/films/films'
-import allReducers from './reducers';
+import allReducers from './containers/components/App.Reducers';
 import thunkMiddleware from "redux-thunk";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import logger from "redux-logger";
@@ -28,7 +28,7 @@ sagaMiddleware.run(rootSaga);
 
 
 const history = useBasename(createHistory)({
-  basename: '/React-Redux-Tuto'
+  basename: ''// /React-Redux-Tuto'
 })
 
 ReactDOM.render(
