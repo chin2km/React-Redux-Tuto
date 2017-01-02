@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 require('../../../scss/style.scss');
-import FontIcon from 'material-ui/FontIcon';
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
-const nearbyIcon = <IconLocationOn />;
+import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
+
 import { Link } from "react-router";
+
+const styleColor={
+  'color':'#888'
+}
 
 class NavigationBar extends Component {
 
@@ -26,10 +27,11 @@ class NavigationBar extends Component {
       <Paper zDepth={1} className='navBar'>
         <BottomNavigation selectedIndex={this.state.selectedIndex}>
 
+    
           <Link to="/actors">
             <BottomNavigationItem
               label="Actors"
-              icon={nearbyIcon}
+              icon={<i className="material-icons" style={styleColor}>face</i>}
               onTouchTap={() => this.select(0)}
             />
           </Link>
@@ -37,7 +39,7 @@ class NavigationBar extends Component {
           <Link to="/films">
             <BottomNavigationItem
               label="Films"
-              icon={nearbyIcon}
+              icon={<i className="material-icons" style={styleColor}>movie</i>}
               onTouchTap={() => this.select(1)}
             />
           </Link>
@@ -45,7 +47,7 @@ class NavigationBar extends Component {
           <Link to="/starships">
             <BottomNavigationItem
               label="Starships"
-              icon={nearbyIcon}
+              icon={<i className="material-icons" style={styleColor}>gamepad</i>}
               onTouchTap={() => this.select(2)}
             />
           </Link>
@@ -53,7 +55,7 @@ class NavigationBar extends Component {
           <Link to="/planets">
             <BottomNavigationItem
               label="Planets"
-              icon={nearbyIcon}
+              icon={<i className="material-icons" style={styleColor}>tonality</i>}
               onTouchTap={() => this.select(2)}
             />
           </Link>
@@ -61,14 +63,14 @@ class NavigationBar extends Component {
           <Link to="/vehicles">
             <BottomNavigationItem
               label="Vehicles"
-              icon={nearbyIcon}
+              icon={<i className="material-icons" style={styleColor}>flight</i>}
               onTouchTap={() => this.select(2)}
             />
           </Link>
           <Link to="/species">
             <BottomNavigationItem
               label="Species"
-              icon={nearbyIcon}
+              icon={<i className="material-icons" style={styleColor}>person_pin</i>}
               onTouchTap={() => this.select(2)}
             />
           </Link>
