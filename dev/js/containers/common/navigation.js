@@ -56,7 +56,7 @@ class NavigationBar extends Component {
             <BottomNavigationItem
               label="Planets"
               icon={<i className="material-icons" style={styleColor}>tonality</i>}
-              onTouchTap={() => this.select(2)}
+              onTouchTap={() => this.select(3)}
             />
           </Link>
 
@@ -64,14 +64,14 @@ class NavigationBar extends Component {
             <BottomNavigationItem
               label="Vehicles"
               icon={<i className="material-icons" style={styleColor}>flight</i>}
-              onTouchTap={() => this.select(2)}
+              onTouchTap={() => this.select(4)}
             />
           </Link>
           <Link to="/species">
             <BottomNavigationItem
               label="Species"
               icon={<i className="material-icons" style={styleColor}>person_pin</i>}
-              onTouchTap={() => this.select(2)}
+              onTouchTap={() => this.select(5)}
             />
           </Link>
         </BottomNavigation>
