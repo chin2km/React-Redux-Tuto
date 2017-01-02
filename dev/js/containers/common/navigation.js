@@ -50,17 +50,24 @@ class NavigationBar extends Component {
             />
           </Link>
 
-          <Link to="/starships">
+          <Link to="/planets">
             <BottomNavigationItem
-              label="Starships"
+              label="Planets"
               icon={nearbyIcon}
               onTouchTap={() => this.select(2)}
             />
           </Link>
 
-          <Link to="/starships">
+          <Link to="/vehicles">
             <BottomNavigationItem
-              label="Starships"
+              label="Vehicles"
+              icon={nearbyIcon}
+              onTouchTap={() => this.select(2)}
+            />
+          </Link>
+          <Link to="/species">
+            <BottomNavigationItem
+              label="Species"
               icon={nearbyIcon}
               onTouchTap={() => this.select(2)}
             />

@@ -1,4 +1,4 @@
-import {FETCH_DATA_BY_ID,PUT_FETCHED_DATA,CLOSE_SELECTED} from "./details.actions";
+import {FETCH_ACTOR_BY_ID,PUT_FETCHED_DATA,CLOSE_SELECTED} from "./details.actions";
 
 const initState={
     selected:false,
@@ -11,7 +11,7 @@ export default function (state=initState,action) {
     const newState = Object.assign({},state);
 
     switch(action.type){
-        case FETCH_DATA_BY_ID:
+        case FETCH_ACTOR_BY_ID:
             newState.selected =  true;
             newState.loaded=false;
             break;

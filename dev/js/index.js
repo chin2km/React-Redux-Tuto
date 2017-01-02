@@ -5,8 +5,12 @@ import {Provider} from "react-redux";
 import { createStore,applyMiddleware } from "redux";
 import App from './containers/App';
 import Actors from './containers/components/actors/actors.layout'
+import Starships from './containers/components/starships/starships.layout'
 import Films from './containers/components/films/films.layout'
-import Starships from './containers/components/starships/starships'
+import Planets from './containers/components/planets/planets.layout'
+import Vehicles from './containers/components/vehicles/vehicles.layout'
+import Species from './containers/components/species/species.layout'
+
 import allReducers from './containers/components/App.Reducers';
 import thunkMiddleware from "redux-thunk";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -28,7 +32,7 @@ sagaMiddleware.run(rootSaga);
 
 
 const history = useBasename(createHistory)({
-  basename: '/React-Redux-Tuto'
+  basename: '' // /React-Redux-Tuto'
 })
 
 ReactDOM.render(
@@ -40,6 +44,9 @@ ReactDOM.render(
                     <Route path = "actors" component = {Actors} />
                     <Route path = "starships" component = {Starships} />
                     <Route path = "films" component = {Films} />
+                    <Route path = "planets" component = {Planets} />
+                    <Route path = "vehicles" component = {Vehicles} />
+                    <Route path = "species" component = {Species} />
                 </Route>
             </Router>
         </MuiThemeProvider>

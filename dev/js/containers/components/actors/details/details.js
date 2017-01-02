@@ -40,7 +40,7 @@ class Details extends Component {
                         
                         <div className="darkBg">
                             {this.props.selector.loaded?
-                                <div className="actor">
+                                <div className="detailed">
 
                                     <StarWarAvatar gender={this.props.selector.activeActor.gender} size="big"/>
 

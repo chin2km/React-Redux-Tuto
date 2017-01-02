@@ -10,7 +10,7 @@ import * as DetailsSagas from './details/details.saga';
 
 export  default function* ActorsSagas() {
   yield [
-    takeLatest(LandingActions.FETCH_DATA_BY_PAGE, LandingSagas.fetchDataByPageSaga),
-    takeEvery(DetailActions.FETCH_DATA_BY_ID, DetailsSagas.fetchDataByIdSaga)
+    takeLatest(LandingActions.FETCH_ACTORS_BY_PAGE, LandingSagas.fetchDataByPageSaga),
+    takeEvery(DetailActions.FETCH_ACTOR_BY_ID, DetailsSagas.fetchDataByIdSaga)
   ]
 }

@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 require('../../../../scss/style.scss');
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Landing from "./landing/landing";
+import Details from "./details/details"
 
-class Species extends Component {
+
+class Vehicles extends Component {
     render() {
         return (
             <div>
-                <h1>Species</h1>
+                <Landing/>
+                <Details/>
             </div>
         );
     }
 }
 
-export default Species;
+export default Vehicles;

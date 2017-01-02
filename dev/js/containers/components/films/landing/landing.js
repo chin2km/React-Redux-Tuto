@@ -7,7 +7,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CircularProgress from '../../../common/loader';
-import StarWarAvatar from "../../../common/components/actors-avatar";
+import StarWarAvatar from "../../../common/components/films-avatar";
 import {fetchDataByPage} from "./landing.actions";
 import {fetchDataById} from "../details/details.actions";
 
@@ -40,12 +40,12 @@ class Landing extends Component {
 
                 <List>
 
-                    {this.props.fetcher.actors.map(actor =>
+                    {this.props.fetcher.films.map(film =>
                         <ListItem className="list-item"
-                            onClick={() => this.props.fetchDataById(actor)}
-                            key={actor.name}
-                            primaryText={actor.name}
-                            leftAvatar={<div><StarWarAvatar gender={actor.gender} size="small" /></div>}
+                            onClick={() => this.props.fetchDataById(film)}
+                            key={film.title}
+                            primaryText={film.title}
+                            leftAvatar={<div><StarWarAvatar gender={film.gender} size="small" /></div>}
                             rightIcon={<MoreVertIcon />}
                             />
                     )
@@ -95,7 +95,7 @@ class Landing extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        fetcher: state.ActorsReducers.landing
+        fetcher: state.FilmsReducers.landing
     }
 }
 

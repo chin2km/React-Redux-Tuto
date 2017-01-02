@@ -1,4 +1,4 @@
-import {FETCH_DATA_BY_PAGE , PUT_DATA} from "./landing.actions"
+import {FETCH_ACTORS_BY_PAGE , PUT_DATA} from "./landing.actions"
 
 const initState={
     fetched:false,
@@ -10,7 +10,7 @@ const initState={
 export default function (state = initState, action) {
     
     switch (action.type) {
-        case FETCH_DATA_BY_PAGE:
+        case FETCH_ACTORS_BY_PAGE:
             return Object.assign({}, initState);
             break;
         case PUT_DATA:

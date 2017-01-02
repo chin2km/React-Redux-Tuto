@@ -5,7 +5,7 @@ import Landing from "./landing/landing";
 import Details from "./details/details"
 
 
-class Actors extends Component {
+class Films extends Component {
     render() {
         return (
             <div>
@@ -16,4 +16,4 @@ class Actors extends Component {
     }
 }
 
-export default Actors;
+export default Films;

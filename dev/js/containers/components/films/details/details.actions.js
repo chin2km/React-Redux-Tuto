@@ -1,18 +1,18 @@
-export const FETCH_DATA_BY_ID = "FETCH_DATA_BY_ID";
+export const FETCH_FILM_BY_ID = "FETCH_FILM_BY_ID";
 export const PUT_FETCHED_DATA ="PUT_FETCHED_DATA";
 export const CLOSE_SELECTED = "CLOSE_SELECTED";
 
-export const fetchDataById = (actor) => {
+export const fetchDataById = (film) => {
     return {
-        type: FETCH_DATA_BY_ID,
-        payload: actor
+        type: FETCH_FILM_BY_ID,
+        payload: film
     }
 }
 
-export const putFetchedData=(actor)=>{
+export const putFetchedData=(film)=>{
     return{
         type:PUT_FETCHED_DATA,
-        payload: actor
+        payload: film
     }
 }
 
