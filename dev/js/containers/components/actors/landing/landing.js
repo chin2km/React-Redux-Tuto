@@ -99,11 +99,9 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        fetchDataById: fetchDataById,
-        fetchDataByPage: fetchDataByPage,
-    }, dispatch)
+const mapDispatchToProps = {
+    fetchDataById: fetchDataById,
+    fetchDataByPage: fetchDataByPage
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);

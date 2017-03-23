@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import { createStore,applyMiddleware } from "redux";
+
 import App from './containers/App';
 import Actors from './containers/components/actors/actors.layout'
 import Starships from './containers/components/starships/starships.layout'
@@ -16,7 +17,6 @@ import thunkMiddleware from "redux-thunk";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import logger from "redux-logger";
 import promiseMiddleware from "redux-promise-middleware";
-import axios from "axios";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from './containers/components/App.Sagas';
 
@@ -32,7 +32,7 @@ sagaMiddleware.run(rootSaga);
 
 
 const history = useBasename(createHistory)({
-  basename: '/React-Redux-Tuto'
+  basename: ''//'/React-Redux-Tuto'
 })
 
 ReactDOM.render(

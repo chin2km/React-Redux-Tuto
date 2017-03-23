@@ -74,10 +74,8 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
+const mapDispatchToProps = {
         closeSelected:closeSelected
-    },dispatch);
-}
+};
 
 export default connect(mapStateToProps,mapDispatchToProps)(Details);
