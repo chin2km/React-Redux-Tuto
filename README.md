@@ -1,6 +1,6 @@
 ##My React-Redux-Saga Demo
 
-##You can check the page here http://www.chin2km.com/React-Redux-Tuto/
+##You can check the page here https://chin2km.github.io/React-Redux-Tuto/
 
 
 
