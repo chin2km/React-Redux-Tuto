@@ -8,7 +8,7 @@ class StarWarAvatar extends Component {
 
         switch (this.props.gender) {
             default:
-                return <img className={"avatar " + this.props.size} src="http://piratevinyldecals.com/wps/wp-content/uploads/2014/04/Star-Wars-X-Wing-PV376.png" />  
+                return <img className={"avatar " + this.props.size} src="https://www.clipartmax.com/png/middle/134-1345263_the-grand-imperial-military-sith-logo-star-wars.png" />  
                 break;
         }
     }
