@@ -1,1 +1,1 @@
-export const apiBaseURL = "https://swapi.co/api/";
+export const apiBaseURL = "https://swapi.dev/api/";

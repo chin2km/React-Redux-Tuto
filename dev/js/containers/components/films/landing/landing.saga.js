@@ -11,7 +11,7 @@ export function* fetchDataByPageSaga(action) {
       yield delay(500);
     }
 
-    const response = yield call(httpRequest,'GET', "https://swapi.co/api/films/?format=json&page="+action.payload);
+    const response = yield call(httpRequest,'GET', "https://swapi.dev/api/films/?format=json&page="+action.payload);
     yield put(putData(response.data));
     
   } catch (error) {
